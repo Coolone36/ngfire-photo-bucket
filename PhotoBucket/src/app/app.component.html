@@ -21,13 +21,13 @@
 <hr>
 <div id="wrapper">
   <div id="columns">
-    <div class="pin" *ngFor="let photoDetails of (photoDetailsStream | async)">
+    <div class="pin" *ngFor="let photoDetails of (photoDetailsStream | async) | reverse">
       <div class="pull-right edit-actions">
         <button type="button" class="btn btn-success btn-xs">
           <span class="glyphicon glyphicon-pencil" (click)="edit(photoDetails)"></span>
         </button>
         <button type="button" class="btn btn-danger btn-xs">
-          <span class="glyphicon glyphicon-trash" (click)="edit(photoDetails)"></span>
+          <span class="glyphicon glyphicon-trash" (click)="remove(photoDetails)"></span>
         </button>
       </div>
       <img [src]="photoDetails.imageUrl" alt="A photo">
