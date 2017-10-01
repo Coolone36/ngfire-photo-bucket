@@ -30,7 +30,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.title = snapshot.val();
     });
   }
-  
+
   ngOnDestroy(): void {
     firebase.database().ref().child('title').off();
   }
@@ -57,6 +57,15 @@ export class AppComponent implements OnInit, OnDestroy {
     } catch (e) {
       console.log('Form error: ', e);
     }
+  }
+
+  edit(photoDetails: PhotoDetails): void {
+    this.formPhotoDetails = photoDetails;
+  }
+
+  remove(photoDetailsKey: string): void {
+    // Delete action of Firebase
+    this.photoDetailsStream.remove(photoDetailsKey);
   }
 
 }
